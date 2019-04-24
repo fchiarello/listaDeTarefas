@@ -13,7 +13,7 @@
         <!--Lista de Tarefas-->
         <scene sceneID="A66-Kr-2a4">
             <objects>
-                <tableViewController id="BwY-Lh-go3" sceneMemberID="viewController">
+                <tableViewController id="BwY-Lh-go3" customClass="TarefasTableViewController" customModule="listaDeTarefas" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UhE-lh-g0B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                         <color key="sectionIndexBackgroundColor" red="0.42040107799999998" green="0.42040107799999998" blue="0.42040107799999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.42040107799999998" green="0.42040107799999998" blue="0.42040107799999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" id="BCW-hl-lzh">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="CelulaReuso" id="BCW-hl-lzh">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BCW-hl-lzh" id="qOi-h6-eze">
@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="856.79999999999995" y="101.19940029985008"/>
         </scene>
-        <!--View Controller-->
+        <!--Cadastro Tarefa View Controller-->
         <scene sceneID="Nif-6V-M9I">
             <objects>
-                <viewController id="wnt-Hx-VrR" sceneMemberID="viewController">
+                <viewController id="wnt-Hx-VrR" customClass="CadastroTarefaViewController" customModule="listaDeTarefas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rBR-Ox-bzE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,6 +67,9 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="txL-S1-mRF">
                                 <rect key="frame" x="16" y="127" width="343" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                </accessibility>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -74,6 +77,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQH-tu-hgi">
                                 <rect key="frame" x="155" y="176" width="65" height="30"/>
                                 <state key="normal" title="Adicionar"/>
+                                <connections>
+                                    <action selector="adicionarTarefa:" destination="wnt-Hx-VrR" eventType="touchUpInside" id="B7B-Nt-fKh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,6 +95,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JcO-vQ-eUb"/>
                     </view>
+                    <connections>
+                        <outlet property="tarefaCampo" destination="txL-S1-mRF" id="hZF-GR-Rhh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7k-Ud-DOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
